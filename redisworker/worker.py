@@ -23,8 +23,8 @@ class Worker(object):
         while True:
             o = self.r.brpop(self.namespace, timeout=60)
             if o is not None:
-                print 'Received: %s' % data[0]
-                envelope = json.loads(data[1])
+                print 'Received: %s' % o[0]
+                envelope = json.loads(o[1])
                 t = Thread(self.run, envelope)
                 t.start()
                 self.pub()
@@ -41,12 +41,12 @@ class Worker(object):
 
             res['result'] = {}
 
-        self.q.put(json.dumps(res))
+        self.q.put(res)
 
     def pub(self):
         s = self.q.get()
-        print s
-        print 'publish'
+        self.p.publish(s['request']['return_key'], json.dumps(s))
+        print 'published to: %s' % s['request']['return_key']
 
 class Thread(threading.Thread):
     def __init__(self, callback, data):
