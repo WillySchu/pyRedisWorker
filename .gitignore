@@ -1,3 +1,4 @@
 *.pyc
 *.rdb
 redisworker.egg-info
+dist
