@@ -6,6 +6,7 @@ setup(name='redisworker',
     url='https://github.com/metricstory/pyredisworker',
     download_url='https://github.com/metricstory/redisworker/archive/0.1.tar.gz',
     author='Will Schumacher',
+    author_email='will@metricstory.com',
     license='MIT',
     packages=['redisworker'],
     install_requires=[
