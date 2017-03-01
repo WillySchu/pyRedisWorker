@@ -1,2 +1,3 @@
 *.pyc
 *.rdb
+redisworker.egg-info
