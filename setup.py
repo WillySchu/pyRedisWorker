@@ -10,4 +10,4 @@ setup(name='redisworker',
     install_requires=[
         'redis'
     ],
-    zip_safe=False)
+    keywords=['redis'])
