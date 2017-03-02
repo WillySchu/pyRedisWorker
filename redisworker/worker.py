@@ -36,7 +36,7 @@ class Worker(object):
             res['result'] = self.callback(data)
         except:
             if self.trace:
-                err = traceback.format_exec()
+                err = traceback.format_exc()
                 res['error'] = err
 
             res['result'] = {}
